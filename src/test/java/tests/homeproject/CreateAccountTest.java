@@ -8,22 +8,21 @@ import tests.homeproject.dto.RegistrationDTO;
 public class CreateAccountTest extends TestBase {
     @Test
     public void createAccount() {
-        clickRegisterOnNavBar();
+        app.getRegistrationHelper().clickRegisterOnNavBar();
         RegistrationDTO registrationDTO = new RegistrationDTO().setFirstName("A")
                 .setLastName("B")
-                .setEmail("proba18@gmail.com")
+                .setEmail("proba21@gmail.com")
                 .setPassword("1234Qwer!")
                 .setConfirmPassword("1234Qwer!");
-        addDataForRegistration(registrationDTO);
+        app.getRegistrationHelper().addDataForRegistration(registrationDTO);
 
-        pause(3000);
+        app.getRegistrationHelper().pause(3000);
+
+        WebElement customerInfo = app.getUserHelper().getCustomerInfo();
+        String actualRes = app.getUserHelper().getTextBase(customerInfo);
 
 
-        WebElement customerInfo = getCustomerInfo();
-        String actualRes = getTextBase(customerInfo);
-
-
-        Assert.assertEquals(actualRes, "proba18@gmail.com");
+        Assert.assertEquals(actualRes, "proba21@gmail.com");
     }
 
 }

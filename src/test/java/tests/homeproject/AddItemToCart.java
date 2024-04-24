@@ -1,28 +1,27 @@
 package tests.homeproject;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+
 public class AddItemToCart extends TestBase {
     @BeforeClass
     public void precondition() {
-        clickLoginOnNavBar();
-        login(user);
+        app.getUserHelper().clickLoginOnNavBar();
+        app.getUserHelper().login(user);
 
     }
-
-
     @Test
     public void addItemInCart()  {
-        clickAddItemToCart();
-        clickShoppingCart();
+        app.getShoppingCartHelper().getShoppingCartElt();
+        app.getShoppingCartHelper().clickShoppingCart();
 
-        WebElement item = driver.findElement(By.xpath("//a[@class='product-name']"));
-        String actualRes = getTextBase(item);
+        WebElement item = app.getShoppingCartHelper().getShoppingCartElt();
+        String actualRes = app.getShoppingCartHelper().getTextBase(item);
         Assert.assertEquals(actualRes, "14.1-inch Laptop");
     }
+
 
 }

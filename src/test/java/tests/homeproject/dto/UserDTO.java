@@ -1,8 +1,8 @@
 package tests.homeproject.dto;
 
 public class UserDTO {
-    private  String email;
-    private  String password;
+       String email;
+       String password;
 
 
     public UserDTO() {
