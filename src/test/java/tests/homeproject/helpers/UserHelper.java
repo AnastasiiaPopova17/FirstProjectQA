@@ -12,16 +12,16 @@ public class UserHelper extends BaseHelper {
     }
 
     public WebElement getCustomerInfo() {
-        return ApplicationManager.getDriver().findElement(By.xpath("//a[@href='/customer/info' and @class='account']"));
+        return driver.findElement(By.xpath("//a[@href='/customer/info' and @class='account']"));
 
     }
 
     public void clickLoginBtn() {
-        ApplicationManager.getDriver().findElement(By.xpath("//input[@class='button-1 login-button']")).click();
+        driver.findElement(By.xpath("//input[@class='button-1 login-button']")).click();
     }
 
     public void clickLoginOnNavBar() {
-        ApplicationManager.getDriver().findElement(By.xpath("//a[@class='ico-login']")).click();
+        driver.findElement(By.xpath("//a[@class='ico-login']")).click();
     }
 
     public void login(UserDTO user) {
