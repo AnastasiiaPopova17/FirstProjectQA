@@ -1,4 +1,4 @@
-package tests.homeproject;
+package tests.homeproject.tests;
 
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -15,10 +15,11 @@ public class AddItemToCart extends TestBase {
     }
     @Test
     public void addItemInCart()  {
-        app.getShoppingCartHelper().getShoppingCartElt();
+
+        app.getShoppingCartHelper().clickAddItemToCart();
         app.getShoppingCartHelper().clickShoppingCart();
 
-        WebElement item = app.getShoppingCartHelper().getShoppingCartElt();
+        WebElement item = app.getShoppingCartHelper().getShoppingCartEl();
         String actualRes = app.getShoppingCartHelper().getTextBase(item);
         Assert.assertEquals(actualRes, "14.1-inch Laptop");
     }

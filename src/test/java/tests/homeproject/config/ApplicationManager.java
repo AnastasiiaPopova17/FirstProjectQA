@@ -4,7 +4,6 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import tests.homeproject.helpers.RegistrationHelper;
 import tests.homeproject.helpers.ShoppingCartHelper;
 import tests.homeproject.helpers.UserHelper;
 
@@ -13,13 +12,10 @@ import java.time.Duration;
 public class ApplicationManager {
     static WebDriver driver;
     String browser;
-    RegistrationHelper registrationHelper;
+
     ShoppingCartHelper shoppingCartHelper;
     UserHelper userHelper;
 
-    public RegistrationHelper getRegistrationHelper() {
-        return registrationHelper;
-    }
 
     public ShoppingCartHelper getShoppingCartHelper() {
         return shoppingCartHelper;
@@ -43,7 +39,6 @@ public class ApplicationManager {
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
         driver.navigate().to("https://demowebshop.tricentis.com/");
 
-        registrationHelper = new RegistrationHelper(driver);
         shoppingCartHelper = new ShoppingCartHelper(driver);
         userHelper = new UserHelper(driver);
     }

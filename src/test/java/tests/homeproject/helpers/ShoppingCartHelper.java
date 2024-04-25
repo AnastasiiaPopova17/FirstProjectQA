@@ -3,20 +3,21 @@ package tests.homeproject.helpers;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import tests.homeproject.config.ApplicationManager;
 
 public class ShoppingCartHelper extends BaseHelper{
     public ShoppingCartHelper(WebDriver driver) {
         super(driver);
     }
     public void clickShoppingCart() {
-        ApplicationManager.getDriver().findElement(By.xpath("//span[text()='Shopping cart']")).click();
+        driver.findElement(By.xpath("//div[@class='footer']//a[@class='ico-cart']")).click();
     }
     public void clickAddItemToCart() {
-        ApplicationManager.getDriver().findElement(By.cssSelector("[onclick*='/addproducttocart/catalog/31/1/1']")).click();
+//        ApplicationManager.getDriver().findElement(By.cssSelector("[onclick*='/addproducttocart/catalog/31/1/1']")).click();
+       driver.findElements(By.xpath("//input[@value='Add to cart']"))
+                .get(1).click();
     }
-    public WebElement getShoppingCartElt() {
-        return ApplicationManager.getDriver().findElement(By.xpath("//a[@class='product-name']"));
+    public WebElement getShoppingCartEl() {
+        return driver.findElement(By.xpath("//a[@class='product-name']"));
 
     }
 }

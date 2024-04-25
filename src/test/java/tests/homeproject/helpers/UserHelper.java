@@ -25,18 +25,52 @@ public class UserHelper extends BaseHelper {
     }
 
     public void login(UserDTO user) {
-        fillEmailOnLogin(user.getEmail());
-        fillPasswordOnLogin(user.getPassword());
+        fillEmail(user.getEmail());
+        fillPassword(user.getPassword());
         clickLoginBtn();
     }
-
-    public void fillPasswordOnLogin(String password) {
+    public void addDataForRegistration(UserDTO registrationDTO) {
+        fillFirstName(registrationDTO.getFirstName());
+        fillLastName(registrationDTO.getLastName());
+        fillEmail(registrationDTO.getEmail());
+        fillPassword(registrationDTO.getPassword());
+        confirmPasswordRegistration(registrationDTO.getConfirmPassword());
+        clickRegisterBtn();
     }
 
-    public void fillEmailOnLogin(String email) {
+    public void fillTextInEl(By by, String text) {
+        WebElement element = ApplicationManager.getDriver().findElement(by);
+        element.click();
+        element.clear();
+        element.sendKeys(text);
+
+    }
+    public void fillEmail(String email) {
+        fillTextInEl(By.xpath("//input[@id='Email']"),email);
     }
 
+    public void fillLastName(String lastName) {
+        fillTextInEl(By.xpath("//input[@id='LastName']"),lastName);
+    }
 
+    public void fillFirstName(String firstName) {
+        fillTextInEl(By.xpath("//input[@id='FirstName']"), firstName);
+    }
+    public void fillPassword(String password) {
+        fillTextInEl(By.xpath("//input[@id='Password']"), password);
+    }
+
+    public void confirmPasswordRegistration(String confirmPassword) {
+        fillTextInEl(By.xpath("//input[@id='ConfirmPassword']"),confirmPassword);
+
+    }
+
+    public void clickRegisterBtn() {
+        driver.findElement(By.xpath("//input[@id='register-button']")).click();
+    }
+    public void clickRegisterOnNavBar() {
+        driver.findElement(By.xpath("//a[@class='ico-register']")).click();
+    }
 }
 
 
