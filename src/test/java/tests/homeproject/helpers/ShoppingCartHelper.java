@@ -8,16 +8,16 @@ public class ShoppingCartHelper extends BaseHelper{
     public ShoppingCartHelper(WebDriver driver) {
         super(driver);
     }
+    By shoppingCartFooter = By.xpath("//div[@class='footer']//a[@class='ico-cart']");
+    By shoppingCartEl = By.xpath("//a[@class='product-name']");
     public void clickShoppingCart() {
-        driver.findElement(By.xpath("//div[@class='footer']//a[@class='ico-cart']")).click();
+        clickBase(shoppingCartFooter);
     }
     public void clickAddItemToCart() {
-//        ApplicationManager.getDriver().findElement(By.cssSelector("[onclick*='/addproducttocart/catalog/31/1/1']")).click();
        driver.findElements(By.xpath("//input[@value='Add to cart']"))
-                .get(1).click();
+                .get(1);
     }
     public WebElement getShoppingCartEl() {
-        return driver.findElement(By.xpath("//a[@class='product-name']"));
-
+        return driver.findElement(shoppingCartEl);
     }
 }

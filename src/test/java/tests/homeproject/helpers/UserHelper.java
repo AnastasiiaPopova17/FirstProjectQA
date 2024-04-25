@@ -3,25 +3,33 @@ package tests.homeproject.helpers;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import tests.homeproject.config.ApplicationManager;
 import tests.homeproject.dto.UserDTO;
 
 public class UserHelper extends BaseHelper {
     public UserHelper(WebDriver driver) {
         super(driver);
     }
+    By btnLogin = By.xpath("//input[@class='button-1 login-button']");
+    By customerEmail = By.xpath("//a[@href='/customer/info' and @class='account']");
+    By btnLoginNavBar = By.xpath("//a[@class='ico-login']");
+    By emailText = By.xpath("//input[@id='Email']");
+    By lastNameText = By.xpath("//input[@id='LastName']");
+    By firstNameText = By.xpath("//input[@id='FirstName']");
+    By passwordText = By.xpath("//input[@id='Password']");
+    By confirmPasswordText = By.xpath("//input[@id='ConfirmPassword']");
+    By btnRegister = By.xpath("//input[@id='register-button']");
+    By btnRegisterNavBar = By.xpath("//a[@class='ico-register']");
 
-    public WebElement getCustomerInfo() {
-        return driver.findElement(By.xpath("//a[@href='/customer/info' and @class='account']"));
-
+    public WebElement getAllreadyRegisteredUserEmail() {
+        return driver.findElement(customerEmail);
     }
 
-    public void clickLoginBtn() {
-        driver.findElement(By.xpath("//input[@class='button-1 login-button']")).click();
+       public void clickLoginBtn() {
+        clickBase(btnLogin);
     }
 
     public void clickLoginOnNavBar() {
-        driver.findElement(By.xpath("//a[@class='ico-login']")).click();
+        clickBase(btnLoginNavBar);
     }
 
     public void login(UserDTO user) {
@@ -39,37 +47,37 @@ public class UserHelper extends BaseHelper {
     }
 
     public void fillTextInEl(By by, String text) {
-        WebElement element = ApplicationManager.getDriver().findElement(by);
+        WebElement element = driver.findElement(by);
         element.click();
         element.clear();
         element.sendKeys(text);
 
     }
     public void fillEmail(String email) {
-        fillTextInEl(By.xpath("//input[@id='Email']"),email);
+        fillTextInEl(emailText,email);
     }
 
     public void fillLastName(String lastName) {
-        fillTextInEl(By.xpath("//input[@id='LastName']"),lastName);
+        fillTextInEl(lastNameText,lastName);
     }
 
     public void fillFirstName(String firstName) {
-        fillTextInEl(By.xpath("//input[@id='FirstName']"), firstName);
+        fillTextInEl(firstNameText, firstName);
     }
     public void fillPassword(String password) {
-        fillTextInEl(By.xpath("//input[@id='Password']"), password);
+        fillTextInEl(passwordText, password);
     }
 
     public void confirmPasswordRegistration(String confirmPassword) {
-        fillTextInEl(By.xpath("//input[@id='ConfirmPassword']"),confirmPassword);
+       fillTextInEl(confirmPasswordText,confirmPassword);
 
     }
 
     public void clickRegisterBtn() {
-        driver.findElement(By.xpath("//input[@id='register-button']")).click();
+        clickBase(btnRegister);
     }
     public void clickRegisterOnNavBar() {
-        driver.findElement(By.xpath("//a[@class='ico-register']")).click();
+        clickBase(btnRegisterNavBar);
     }
 }
 
