@@ -19,6 +19,8 @@ public class UserHelper extends BaseHelper {
     By confirmPasswordText = By.xpath("//input[@id='ConfirmPassword']");
     By btnRegister = By.xpath("//input[@id='register-button']");
     By btnRegisterNavBar = By.xpath("//a[@class='ico-register']");
+    By btnLogout = By.xpath("//a[@class='ico-logout']");
+    By navigateToHomePage = By.xpath("//div[@class='header-logo']");
 
     public WebElement getAllreadyRegisteredUserEmail() {
         return driver.findElement(customerEmail);
@@ -28,8 +30,16 @@ public class UserHelper extends BaseHelper {
         clickBase(btnLogin);
     }
 
+    public void clickLogoutBtn() {
+        clickBase(btnLogout);
+    }
+
     public void clickLoginOnNavBar() {
         clickBase(btnLoginNavBar);
+    }
+
+    public void navigateToHomePage() {
+        clickBase(navigateToHomePage);
     }
 
     public void login(UserDTO user) {

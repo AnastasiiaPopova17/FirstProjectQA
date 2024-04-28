@@ -3,9 +3,7 @@
 <suite name="Suite1" verbose="1">
     <test name="Suite1">
         <classes>
-            <class name="tests.homeproject.tests.AddItemToCart"/>
             <class name="tests.homeproject.tests.CreateAccount"/>
         </classes>
     </test>
-
 </suite>

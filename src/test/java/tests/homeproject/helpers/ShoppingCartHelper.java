@@ -10,6 +10,7 @@ public class ShoppingCartHelper extends BaseHelper{
     }
     By shoppingCartFooter = By.xpath("//div[@class='footer']//a[@class='ico-cart']");
     By shoppingCartEl = By.xpath("//a[@class='product-name']");
+
     public void clickShoppingCart() {
         clickBase(shoppingCartFooter);
     }
@@ -20,4 +21,6 @@ public class ShoppingCartHelper extends BaseHelper{
     public WebElement getShoppingCartEl() {
         return driver.findElement(shoppingCartEl);
     }
+
+
 }

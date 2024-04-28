@@ -5,7 +5,6 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-
 public class AddItemToCart extends TestBase {
     @BeforeClass
     public void precondition() {
@@ -13,6 +12,21 @@ public class AddItemToCart extends TestBase {
         app.getUserHelper().login(user);
 
     }
+
+//    boolean flag = false;
+//
+//    @AfterMethod
+//    public void methodPostCondition() {
+//        if (flag) {
+//            app.getUserHelper().clickLogoutBtn();
+//            flag = false;
+//        } else {
+//            app.getUserHelper().clickOkAlert();
+//        }
+//        app.getUserHelper().navigateToHomePage();
+//    }
+
+
     @Test
     public void addItemInCart()  {
 
