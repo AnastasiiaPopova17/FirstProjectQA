@@ -18,7 +18,7 @@ public class TestBase {
     static ApplicationManager app = new ApplicationManager(System
             .getProperty("browser", Browser.CHROME.browserName()));
 
-    final static Logger logger = LoggerFactory.getLogger(TestBase.class);
+    static Logger logger = LoggerFactory.getLogger(TestBase.class);
     UserDTO user = new UserDTO()
             .setEmail("proba@gmail.com")
             .setPassword("1234Qwer!")
