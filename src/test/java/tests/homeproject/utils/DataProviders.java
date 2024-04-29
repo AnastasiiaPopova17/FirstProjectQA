@@ -12,7 +12,7 @@ public class DataProviders {
     @DataProvider
     public Iterator<Object[]> addNewAccount() {
         List<Object[]> list = new ArrayList<>();
-        list.add(new Object[] {"Asya", "Po", "gdsfga@gmail.com", "1234Qwer!", "1234Qwer!"});
+        list.add(new Object[] {"Asya", "Po", "gdtfga@gmail.com", "1234Qwer!", "1234Qwer!"});
         return list.iterator();
     }
 
