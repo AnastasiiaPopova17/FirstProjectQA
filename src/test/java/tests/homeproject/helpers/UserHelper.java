@@ -56,13 +56,6 @@ public class UserHelper extends BaseHelper {
         clickRegisterBtn();
     }
 
-    public void fillTextInEl(By by, String text) {
-        WebElement element = driver.findElement(by);
-        element.click();
-        element.clear();
-        element.sendKeys(text);
-
-    }
     public void fillEmail(String email) {
         fillTextInEl(emailText,email);
     }

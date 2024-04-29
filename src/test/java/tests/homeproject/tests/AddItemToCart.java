@@ -36,6 +36,7 @@ public class AddItemToCart extends TestBase {
         WebElement item = app.getShoppingCartHelper().getShoppingCartEl();
         String actualRes = app.getShoppingCartHelper().getTextBase(item);
         Assert.assertEquals(actualRes, "14.1-inch Laptop");
+        app.getUserHelper().clickLogoutBtn();
     }
 
 

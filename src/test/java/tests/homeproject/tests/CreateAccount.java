@@ -6,19 +6,21 @@ import org.testng.annotations.Test;
 import tests.homeproject.dto.UserDTO;
 import tests.homeproject.utils.DataProviders;
 
+import java.util.Random;
+
 public class CreateAccount extends TestBase {
 
     @Test
     public void createAccount() {
-//        Random random = new Random();
-//        String email = String.valueOf(random.nextInt(1000)) + "proba@gmail.com";
-//        String password = String.valueOf(random.nextInt(10000)) + "Qwer!";
+        Random random = new Random();
+        String randomEmail = String.valueOf(random.nextInt(1000));
+        String randomPassword = String.valueOf(random.nextInt(10000));
         app.getUserHelper().clickRegisterOnNavBar();
         UserDTO user1 = new UserDTO().setFirstName("A")
                 .setLastName("B")
-                .setEmail("proba034@gmail.com")
-                .setPassword("1234Qwer!")
-                .setConfirmPassword("1234Qwer!");
+                .setEmail(randomEmail + "proba@gmail.com")
+                .setPassword(randomPassword + "Qwer!")
+                .setConfirmPassword(randomPassword + "Qwer!");
 
         app.getUserHelper().addDataForRegistration(user1);
 
